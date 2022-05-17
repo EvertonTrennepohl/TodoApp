@@ -1,6 +1,10 @@
 use todoapp;
 
-create table projetos (
+DROP TABLE IF EXISTS tarefas;
+
+DROP TABLE IF EXISTS projetos;
+
+CREATE TABLE projetos (
     id_projeto int not null auto_increment,
     nome varchar (100) not null,
     descricao varchar(1000) not null,
@@ -9,7 +13,7 @@ create table projetos (
     constraint projetos_pk primary key (id_projeto)
 );
 
-create table tarefas (
+CREATE TABLE tarefas (
 	id_tarefa int not null auto_increment,
     id_projeto int not null,
     nome varchar (100) not null,
