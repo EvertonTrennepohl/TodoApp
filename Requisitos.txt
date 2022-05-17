@@ -1,0 +1,40 @@
+TodoApp
+
+Descrição do projeto:
+
+O projeto visa desenvolver uma aplicação para o gerenciamento de projetos e tarefas
+
+
+
+REQUISITOS: 
+	* A aplicação deve permitir criar um projeto (CRUD)
+	* A aplicação deve permitir editar um projeto (CRUD)
+	* A aplicação deve permitir excluir um projeto (CRUD)
+	* A aplicação deve permitir buscar um projeto (CRUD)
+
+	* A aplicação deve permitir criar uma tarefa (CRUD)
+	* A aplicação deve permitir editar uma tarefa (CRUD)
+	* A aplicação deve permitir excluir uma tarefa (CRUD)
+	* A aplicação deve permitir buscar uma tarefa (CRUD)
+
+REGRAS DE NEGÓCIO:
+	- O sistema não contará com um sistema de login
+	- Não haverá o conceito de usuário
+	- Toda tarefa deve pertencer a um projeto
+
+
+ENTIDADES:
+Projeto:
+	- Nome
+	- Descrição
+	- Data de Criação
+	- Data de Atualização
+
+Tarefa:
+	- Nome
+	- Descrição
+	- Status
+	- Observações
+	- Prazo
+	- Data de Criação
+	- Data de Atualização

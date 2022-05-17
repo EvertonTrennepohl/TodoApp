@@ -14,12 +14,12 @@ CREATE TABLE projetos (
 );
 
 CREATE TABLE tarefas (
-	id_tarefa int not null auto_increment,
+    id_tarefa int not null auto_increment,
     id_projeto int not null,
     nome varchar (100) not null,
     descricao varchar (1000) not null,
     status boolean not null,
-    observacaoes varchar (500),
+    observacoes varchar (500),
     prazo datetime not null,
     data_criacao datetime not null,
     data_atualizacao datetime,

@@ -163,6 +163,7 @@ public class MainScreen extends JFrame {
         jListProjects.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jListProjects.setFixedCellHeight(50);
         jListProjects.setSelectionBackground(new Color(100, 200, 200));
+        jListProjects.setToolTipText("Clique com o botão direito do mouse para opções.");
         jListProjects.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent evt) {
@@ -474,18 +475,23 @@ public class MainScreen extends JFrame {
     }
     
     private void jLabelTasksToolBarAddMouseClicked(java.awt.event.MouseEvent evt) {
-    	int projectIndex = jListProjects.getSelectedIndex();
-    	Project project = (Project) projectsModel.get(projectIndex);
-    	TaskDialogScreen taskDialogScreen = new TaskDialogScreen(this, rootPaneCheckingEnabled);
-    	taskDialogScreen.setProject(project);
-    	taskDialogScreen.setVisible(true);
-    	
-    	taskDialogScreen.addWindowListener(new WindowAdapter() {
-    		public void windowClosed(WindowEvent e) {
-    			Project project = (Project) projectsModel.get(jListProjects.getSelectedIndex());
-    			loadTasks(project.getId());
-    		}
-    	});
+    	if(!jListProjects.isSelectionEmpty()) {
+	    	int projectIndex = jListProjects.getSelectedIndex();
+	    	Project project = (Project) projectsModel.get(projectIndex);
+	    	TaskDialogScreen taskDialogScreen = new TaskDialogScreen(this, rootPaneCheckingEnabled);
+	    	taskDialogScreen.setProject(project);
+	    	taskDialogScreen.setVisible(true);
+	    	
+	    	taskDialogScreen.addWindowListener(new WindowAdapter() {
+	    		public void windowClosed(WindowEvent e) {
+	    			Project project = (Project) projectsModel.get(jListProjects.getSelectedIndex());
+	    			loadTasks(project.getId());
+	    		}
+	    	});
+    	} else {
+    		JOptionPane.showMessageDialog(rootPane, "Nenhum projeto selecionado!\nSelecione um "
+    				+ "projeto para adicionar uma tarefa", "Informação", JOptionPane.INFORMATION_MESSAGE);
+    	}
     }
     
     private void jListProjectsMouseClicked(MouseEvent evt) {
